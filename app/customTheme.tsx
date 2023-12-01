@@ -143,7 +143,7 @@ const CustomTheme = extendTheme(
           overflowY: "hidden",
           fontFamily: "'Niramit', sans-serif;",
           bg: colors.darkBlue,
-          bgGradient: gradients.opacityBlueMagentaTop,
+          bgGradient: gradients.diagonalMagentaToBlue,
           color: colors.lightCreme,
           fontSize: "1.3rem",
         },
@@ -216,6 +216,7 @@ export const InputStyles = {
 
 export const ButtonStyles = {
   bg: colors.lightBlue,
+  h: "35px",
   color: colors.darkMagenta,
   shadow: mainShadow,
   textShadow: lightTextShadow,
@@ -226,7 +227,6 @@ export const ButtonStyles = {
     color: colors.lightCreme,
     shadow: largeShadow,
     textShadow: subtleTextShadow,
-    fontWeight: "600",
     transition: "all 0.3s ease-in-out",
   },
 };
