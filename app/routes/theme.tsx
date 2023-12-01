@@ -22,7 +22,6 @@ import {
   lightTextShadow,
   mainShadow,
   scrollBarStyles,
-  subtleTextShadow,
 } from "~/customTheme";
 
 const ColorSwatch = () => {
@@ -35,6 +34,7 @@ const ColorSwatch = () => {
         w="90%"
         rounded="md"
         p={3}
+        textShadow={lightTextShadow}
       >
         {Object.entries(colors).map(([colorName, colorValue]) => (
           <WrapItem key={colorName}>
@@ -60,6 +60,7 @@ const ColorSwatch = () => {
         bg="white"
         w="90%"
         rounded="md"
+        textShadow={lightTextShadow}
         p={3}
       >
         {Object.entries(gradients).map(([gradientName, gradientValue]) => (
@@ -109,45 +110,31 @@ export default function ViewTheme() {
       sx={scrollBarStyles}
       justify="start"
     >
-      <VStack
-        textShadow={lightTextShadow}
-        w="99vw"
-        fontWeight="600"
-        py="20px"
-        overflowX="hidden"
-      >
+      <VStack w="99vw" fontWeight="600" py="20px" overflowX="hidden">
         <Text {...heading}>Color Theme</Text>
         <ColorSwatch />
         <VStack w="100%">
           <Text {...heading}>Components</Text>
-          <HStack spacing="30px" align="start">
+          <Wrap spacing="30px" align="start" justify="center">
+            <VStack>
+              <Text textShadow={largeTextShadow}>Horizontal Snap Scroll</Text>
+              <HorizontalSnapScrollViewer images={images} />
+            </VStack>
+            <VStack>
+              <Text textShadow={largeTextShadow}>Vertical Snap Scroll</Text>
+              <VerticalSnapScrollViewer images={images} />
+            </VStack>
             <VStack spacing="30px">
               <VStack>
-                <Text>Button Style</Text>
+                <Text textShadow={largeTextShadow}>Button Style</Text>
                 <Button {...ButtonStyles}>Click me</Button>
               </VStack>
               <VStack>
-                <Text>Icon Button Style</Text>
+                <Text textShadow={largeTextShadow}>Icon Button Style</Text>
                 <CustomIconButton icon={ChevronDownIcon} />
               </VStack>
             </VStack>
-            <VStack>
-              <Text>Horizontal Snap Scroll</Text>
-              <HorizontalSnapScrollViewer
-                contentHeight="125px"
-                contentWidth="125px"
-                images={images}
-              />
-            </VStack>
-            <VStack>
-              <Text>Vertical Snap Scroll</Text>
-              <VerticalSnapScrollViewer
-                contentHeight="125px"
-                contentWidth="125px"
-                images={images}
-              />
-            </VStack>
-          </HStack>
+          </Wrap>
         </VStack>
       </VStack>
     </EntirePage>

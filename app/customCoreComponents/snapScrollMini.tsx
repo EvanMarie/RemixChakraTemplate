@@ -1,11 +1,6 @@
-import { Box, HStack, Image, Text, VStack } from "@chakra-ui/react";
+import { Box, HStack, Image, VStack } from "@chakra-ui/react";
 import React, { useEffect, useRef, useState } from "react";
-import {
-  gradients,
-  largeTextShadow,
-  mainShadow,
-  shadow3D,
-} from "~/customTheme";
+import { gradients, mainShadow, shadow3D } from "~/customTheme";
 import CustomIconButton from "./CustomIconButton";
 import {
   ChevronDownIcon,
@@ -68,7 +63,9 @@ export function VerticalSnapScrollViewer({
       p={5}
       rounded="lg"
       bg="aiArt.800"
-      bgGradient={gradients.radialMagentaMix}
+      bgGradient={gradients.radialTealToMagenta}
+      shadow={mainShadow}
+      w="fit-content"
     >
       <HStack spacing={4} align="stretch" h="fit-content">
         <VStack
@@ -82,7 +79,7 @@ export function VerticalSnapScrollViewer({
             scrollSnapType: "y mandatory",
             "&::-webkit-scrollbar": { display: "none" },
           }}
-          spacing={4}
+          spacing={0}
           p={0}
         >
           {images &&
@@ -99,18 +96,22 @@ export function VerticalSnapScrollViewer({
                 <Image src={src} objectFit="cover" w="100%" h="100%" />
               </Box>
             ))}
-          <Box
-            h={contentHeight}
-            w={contentWidth}
-            shadow={mainShadow}
-            css={{
-              scrollSnapAlign: "start",
-            }}
-          >
-            {children}
-          </Box>
+          {children &&
+            React.Children.map(children, (child, index) => (
+              <Box
+                key={index}
+                flex="none"
+                overflow="hidden"
+                scrollSnapAlign="start"
+                w={contentWidth}
+                h={contentHeight}
+                lineHeight="0"
+              >
+                {child}
+              </Box>
+            ))}
         </VStack>
-        <VStack h="100%" justify="space-between" bg="red">
+        <VStack justify="space-between" h={contentHeight} py={4}>
           <CustomIconButton
             aria-label="scroll up"
             icon={ChevronUpIcon}
@@ -179,9 +180,10 @@ export function HorizontalSnapScrollViewer({
       p={5}
       rounded="lg"
       bg="aiArt.800"
-      bgGradient={gradients.radialMagentaMix}
+      bgGradient={gradients.radialTealToMagenta}
+      shadow={mainShadow}
     >
-      <VStack>
+      <VStack spacing={5}>
         <HStack
           rounded="lg"
           ref={scrollContainerRef}
@@ -210,18 +212,20 @@ export function HorizontalSnapScrollViewer({
                 <Image src={src} w="100%" h="100%" objectFit="cover" />
               </Box>
             ))}
-          {children && (
-            <Box
-              h={contentHeight}
-              w={contentWidth}
-              shadow={mainShadow}
-              css={{
-                scrollSnapAlign: "start",
-              }}
-            >
-              {children}
-            </Box>
-          )}
+          {children &&
+            React.Children.map(children, (child, index) => (
+              <Box
+                key={index}
+                flex="none"
+                overflow="hidden"
+                scrollSnapAlign="start"
+                w={contentWidth}
+                h={contentHeight}
+                lineHeight="0"
+              >
+                {child}
+              </Box>
+            ))}
         </HStack>
         <HStack w="100%" justify="space-between">
           <CustomIconButton
