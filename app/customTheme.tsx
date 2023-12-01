@@ -196,6 +196,11 @@ export const scrollBarStyles = {
   },
 };
 
+export const overlayStyles = {
+  bgGradient: gradients.opacityBlueMagentaTop,
+  backdropFilter: "blur(4px)",
+};
+
 export const InputStyles = {
   variant: "filled",
   rounded: radius,

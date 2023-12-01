@@ -3,6 +3,7 @@ import { Button, Box, Wrap, WrapItem, VStack, Text } from "@chakra-ui/react";
 import CustomIconButton from "~/customCoreComponents/CustomIconButton";
 import CometBorder from "~/customCoreComponents/cometBorder";
 import EntirePage from "~/customCoreComponents/entirePage";
+import { FadeInImage } from "~/customCoreComponents/fadeIn";
 import GradientBorder from "~/customCoreComponents/gradientBorder";
 import LoadingText from "~/customCoreComponents/loadingDots";
 import {
@@ -149,6 +150,7 @@ export default function ViewTheme() {
                 </Box>
               </GradientBorder>
             </VStack>
+            <FadeInImage src="/cute/cute1.png" />
           </Wrap>
         </VStack>
       </VStack>
