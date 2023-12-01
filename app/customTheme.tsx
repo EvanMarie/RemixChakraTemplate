@@ -54,6 +54,34 @@ export const colors = {
   lightMagenta75: "rgba(217, 140, 179, 0.75)",
 };
 
+export const gradients = {
+  // Linear Gradients
+  linearBlueToTeal: `linear-gradient(to right, ${colors.darkBlue}, ${colors.darkTeal})`,
+  linearMagentaToCreme: `linear-gradient(to bottom, ${colors.darkMagenta}, ${colors.lightCreme})`,
+  linearBlueToMagenta: `linear-gradient(to left, ${colors.mediumBlue}, ${colors.mediumMagenta})`,
+  linearTealToLightBlue: `linear-gradient(45deg, ${colors.darkTeal}, ${colors.lightBlue})`,
+
+  // Radial Gradients
+  radialBlueToCreme: `radial-gradient(circle, ${colors.lightBlue} 0%, ${colors.lightCreme} 100%)`,
+  radialMagentaMix: `radial-gradient(circle, ${colors.lightMagenta} 0%, ${colors.darkMagenta} 100%)`,
+  radialTealToMagenta: `radial-gradient(circle, ${colors.darkTeal}, ${colors.mediumMagenta})`,
+
+  // Mixed Colors Gradients
+  mixedBlueMagenta: `linear-gradient(to right, ${colors.mediumBlue}, ${colors.lightMagenta}, ${colors.darkMagenta})`,
+  mixedTealCreme: `linear-gradient(to top left, ${colors.darkTeal}, ${colors.lightCreme}, ${colors.mediumBlue})`,
+
+  // Opacity Variants Gradients
+  opacityBlueMagentaBottom: `linear-gradient(to bottom, ${colors.darkBlue50}, ${colors.mediumMagenta50})`,
+  opacityBlueMagentaTop: `linear-gradient(to top, ${colors.darkBlue50}, ${colors.mediumMagenta50})`,
+  opacityBlueMagentaRight: `linear-gradient(to right, ${colors.darkBlue50}, ${colors.mediumMagenta50})`,
+  opacityBlueMagentaLeft: `linear-gradient(to left, ${colors.darkBlue50}, ${colors.mediumMagenta50})`,
+  opacityCremeToBlueTop: `linear-gradient(to top, ${colors.lightCreme25}, ${colors.lightBlue75})`,
+
+  // Diagonal Gradients
+  diagonalMagentaToBlue: `linear-gradient(135deg, ${colors.darkMagenta}, ${colors.mediumBlue})`,
+  diagonalTealToCreme: `linear-gradient(135deg, ${colors.darkTeal}, ${colors.lightCreme})`,
+};
+
 const customTransition = {
   enter: {
     duration: 0.5, // time in seconds
@@ -109,12 +137,14 @@ const CustomTheme = extendTheme(
           overflowY: "hidden",
         },
         body: {
+          w: "100vw",
+          h: "100vh",
           overflowX: "hidden",
           overflowY: "hidden",
           fontFamily: "'Niramit', sans-serif;",
-          bgGradient:
-            "linear(to-b, gray.700, gray.800, gray.900, gray.800, gray.700)",
-          color: "gray.100",
+          bg: colors.darkBlue,
+          bgGradient: gradients.opacityBlueMagentaTop,
+          color: colors.lightCreme,
           fontSize: "1.3rem",
         },
         a: {
@@ -171,7 +201,7 @@ export const InputStyles = {
   color: colors.lightCreme,
   shadow: shadow,
   borderColor: colors.mediumBlue,
-  focusBorderColor: colors.deepMagenta,
+  focusBorderColor: colors.darkMagenta,
   _hover: {
     bg: colors.darkTeal,
     borderColor: colors.mediumMagenta,
@@ -179,22 +209,24 @@ export const InputStyles = {
   },
   _focus: {
     bg: colors.darkTeal,
-    borderColor: colors.deepMagenta,
+    borderColor: colors.darkMagenta,
   },
   transition: "all 0.3s ease-in-out",
 };
 
 export const ButtonStyles = {
-  bg: colors.mediumBlue,
-  color: colors.lightCreme,
-  shadow: shadow3D,
-  textShadow: largeTextShadow,
-  fontWeight: "500",
+  bg: colors.lightBlue,
+  color: colors.darkMagenta,
+  shadow: mainShadow,
+  textShadow: lightTextShadow,
+  fontWeight: "600",
   rounded: radius,
   _hover: {
-    bg: colors.lightBlue,
-    color: colors.darkTeal,
-    shadow: lightTextShadow,
+    bg: colors.mediumBlue,
+    color: colors.lightCreme,
+    shadow: largeShadow,
+    textShadow: subtleTextShadow,
     fontWeight: "600",
+    transition: "all 0.3s ease-in-out",
   },
 };
