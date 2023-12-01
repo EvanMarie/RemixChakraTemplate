@@ -25,7 +25,7 @@ export default function LoadingText({
       spacing={0}
     >
       <Text>Loading</Text>
-      <Box mb={2}>
+      <Box>
         <BouncingDots dotSize={dotSize} />
       </Box>
     </HStack>

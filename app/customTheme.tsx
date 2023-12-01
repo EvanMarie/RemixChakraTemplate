@@ -22,6 +22,7 @@ export const colors = {
   darkMagenta: "#8A1C7C",
   mediumMagenta: "#B5307A",
   lightMagenta: "#D98CB3",
+  paleMagenta: "#F2E7F2",
 
   // Opacity 0.25
   darkBlue25: "rgba(11, 12, 38, 0.25)",
@@ -32,6 +33,7 @@ export const colors = {
   darkMagenta25: "rgba(138, 28, 124, 0.25)",
   mediumMagenta25: "rgba(181, 48, 122, 0.25)",
   lightMagenta25: "rgba(217, 140, 179, 0.25)",
+  paleMagenta25: "rgba(242, 231, 242, 0.25)",
 
   // Opacity 0.5
   darkBlue50: "rgba(11, 12, 38, 0.5)",
@@ -42,6 +44,7 @@ export const colors = {
   darkMagenta50: "rgba(138, 28, 124, 0.5)",
   mediumMagenta50: "rgba(181, 48, 122, 0.5)",
   lightMagenta50: "rgba(217, 140, 179, 0.5)",
+  paleMagenta50: "rgba(242, 231, 242, 0.5)",
 
   // Opacity 0.75
   darkBlue75: "rgba(11, 12, 38, 0.75)",
@@ -52,6 +55,7 @@ export const colors = {
   darkMagenta75: "rgba(138, 28, 124, 0.75)",
   mediumMagenta75: "rgba(181, 48, 122, 0.75)",
   lightMagenta75: "rgba(217, 140, 179, 0.75)",
+  paleMagenta75: "rgba(242, 231, 242, 0.75)",
 };
 
 export const gradients = {

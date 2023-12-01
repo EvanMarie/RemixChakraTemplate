@@ -1,7 +1,9 @@
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import { Button, Box, Wrap, WrapItem, VStack, Text } from "@chakra-ui/react";
 import CustomIconButton from "~/customCoreComponents/CustomIconButton";
+import CometBorder from "~/customCoreComponents/cometBorder";
 import EntirePage from "~/customCoreComponents/entirePage";
+import GradientBorder from "~/customCoreComponents/gradientBorder";
 import LoadingText from "~/customCoreComponents/loadingDots";
 import {
   HorizontalSnapScrollViewer,
@@ -108,7 +110,7 @@ export default function ViewTheme() {
         <ColorSwatch />
         <VStack w="100%">
           <Text {...heading}>Components</Text>
-          <Wrap spacing="30px" align="start" justify="center">
+          <Wrap spacing="30px" justify="center" align="stretch">
             <VStack>
               <Text textShadow={largeTextShadow}>Horizontal Snap Scroll</Text>
               <HorizontalSnapScrollViewer images={images} />
@@ -117,7 +119,7 @@ export default function ViewTheme() {
               <Text textShadow={largeTextShadow}>Vertical Snap Scroll</Text>
               <VerticalSnapScrollViewer images={images} />
             </VStack>
-            <VStack spacing="30px">
+            <VStack spacing="30px" justify="space-evenly">
               <VStack>
                 <Text textShadow={largeTextShadow}>Button Style</Text>
                 <Button {...ButtonStyles}>Click me</Button>
@@ -127,10 +129,25 @@ export default function ViewTheme() {
                 <CustomIconButton icon={ChevronDownIcon} />
               </VStack>
               <VStack>
-                {" "}
                 <Text textShadow={largeTextShadow}>Loading Text</Text>
                 <LoadingText />
               </VStack>
+            </VStack>
+            <VStack>
+              <Text textShadow={largeTextShadow}>Comet Border</Text>
+              <CometBorder>
+                <Box w="300px" h="1 00px">
+                  Contents of Comet Border
+                </Box>
+              </CometBorder>
+            </VStack>
+            <VStack>
+              <Text textShadow={largeTextShadow}>Gradient Border</Text>
+              <GradientBorder>
+                <Box w="300px" h="1 00px">
+                  Contents of Gradient Border
+                </Box>
+              </GradientBorder>
             </VStack>
           </Wrap>
         </VStack>
