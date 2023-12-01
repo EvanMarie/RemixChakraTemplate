@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import CustomIconButton from "~/customCoreComponents/CustomIconButton";
 import EntirePage from "~/customCoreComponents/entirePage";
+import { HorizontalSnapScrollViewer } from "~/customCoreComponents/snapScrollMini";
 import {
   ButtonStyles,
   colors,
@@ -63,7 +64,13 @@ const ColorSwatch = () => {
               <Text fontSize="xs" color={colors.darkBlue}>
                 {gradientName}
               </Text>
-              <Box w="75px" h="75px" bg={gradientValue} borderRadius="md"></Box>
+              <Box
+                w="75px"
+                h="75px"
+                bg={gradientValue}
+                borderRadius="md"
+                shadow={mainShadow}
+              ></Box>
             </VStack>{" "}
           </WrapItem>
         ))}
@@ -89,14 +96,37 @@ export default function ViewTheme() {
       justify="start"
       py="20px"
     >
-      <VStack>
+      <VStack textShadow={largeTextShadow}>
         <Text {...heading}>Color Theme</Text>
         <ColorSwatch />
         <VStack w="100%">
           <Text {...heading}>Components</Text>
-          <HStack spacing={4}>
-            <Button {...ButtonStyles}>Click me</Button>
-            <CustomIconButton icon={ChevronDownIcon} />
+          <HStack spacing="30px" align="start">
+            <VStack spacing="30px">
+              <VStack>
+                <Text>Button Style</Text>
+                <Button {...ButtonStyles}>Click me</Button>
+              </VStack>
+              <VStack>
+                <Text>Icon Button Style</Text>
+                <CustomIconButton icon={ChevronDownIcon} />
+              </VStack>
+            </VStack>
+            <VStack>
+              <Text>Horizontal Snap Scroll</Text>
+              <HorizontalSnapScrollViewer
+                contentHeight="125px"
+                contentWidth="125px"
+                images={[
+                  "/cute/cute1.png",
+                  "/cute/cute2.png",
+                  "/cute/cute3.png",
+                  "/cute/cute4.png",
+                  "/cute/cute5.png",
+                  "/cute/cute6.png",
+                ]}
+              />
+            </VStack>
           </HStack>
         </VStack>
       </VStack>

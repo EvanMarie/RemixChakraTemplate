@@ -6,7 +6,7 @@ import {
   VStack,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   gradients,
   largeTextShadow,
@@ -30,28 +30,44 @@ interface SnapScrollViewerProps {
 
 export function VerticalSnapScrollViewer({
   images,
-  contentHeight,
-  contentWidth,
+  contentHeight = "350px",
+  contentWidth = "350px",
   children,
 }: SnapScrollViewerProps) {
-  const scrollContainerRef = React.useRef<HTMLDivElement>(null);
-  // const scrollAmount = useBreakpointValue({ base: 100, md: 350 }) ?? 100;
-  const numericImageWidth = parseInt(contentWidth ? contentWidth : "", 10);
-  const scrollAmount =
-    useBreakpointValue({
-      base: numericImageWidth,
-    }) ?? numericImageWidth;
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [atTop, setAtTop] = useState(true);
+  const [atBottom, setAtBottom] = useState(false);
 
-  // Function to scroll the container
+  const checkScrollPosition = () => {
+    const container = scrollContainerRef.current;
+    if (container) {
+      setAtTop(container.scrollTop === 0);
+      setAtBottom(
+        container.scrollTop + container.clientHeight === container.scrollHeight
+      );
+    }
+  };
+
   const scroll = (direction: "up" | "down") => {
     const container = scrollContainerRef.current;
     if (container) {
-      // Ensure we have a number for scroll amount
-      const y =
-        direction === "up" ? -(scrollAmount ?? 100) : scrollAmount ?? 100;
+      const y = direction === "up" ? -100 : 100; // Adjust this value as needed
       container.scrollBy({ top: y, behavior: "smooth" });
     }
   };
+
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (container) {
+      container.addEventListener("scroll", checkScrollPosition);
+    }
+
+    return () => {
+      if (container) {
+        container.removeEventListener("scroll", checkScrollPosition);
+      }
+    };
+  }, []);
 
   return (
     <VStack
@@ -64,8 +80,8 @@ export function VerticalSnapScrollViewer({
       <HStack spacing={4} align="center" h="fit-content">
         <VStack
           ref={scrollContainerRef}
-          w={contentWidth ?? "350px"}
-          h={contentHeight ?? "350px"}
+          w={contentWidth}
+          h={contentHeight}
           rounded="md"
           shadow={shadow3D}
           overflowY="scroll"
@@ -80,8 +96,8 @@ export function VerticalSnapScrollViewer({
             images.map((src, index) => (
               <Box
                 key={index}
-                h={contentHeight ?? "350px"}
-                w={contentWidth ?? "350px"}
+                h={contentHeight}
+                w={contentWidth}
                 shadow={mainShadow}
                 css={{
                   scrollSnapAlign: "start",
@@ -91,8 +107,8 @@ export function VerticalSnapScrollViewer({
               </Box>
             ))}
           <Box
-            h={contentHeight ?? "350px"}
-            w={contentWidth ?? "350px"}
+            h={contentHeight}
+            w={contentWidth}
             shadow={mainShadow}
             css={{
               scrollSnapAlign: "start",
@@ -108,6 +124,7 @@ export function VerticalSnapScrollViewer({
             buttonSize="40px"
             iconSize="30px"
             onClick={() => scroll("up")}
+            isDisabled={atTop}
           />
           <CustomIconButton
             aria-label="scroll down"
@@ -125,13 +142,14 @@ export function VerticalSnapScrollViewer({
 
 export function HorizontalSnapScrollViewer({
   images,
-  imageHeight = "350px",
-  imageWidth = "350px",
+  children,
+  contentHeight = "350px",
+  contentWidth = "350px",
 }: SnapScrollViewerProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   // Assume imageWidth is a string like '350px' and extract the numeric value
-  const numericImageWidth = parseInt(imageWidth, 10);
+  const numericImageWidth = parseInt(contentWidth, 10);
   const scrollAmount =
     useBreakpointValue({
       base: numericImageWidth,
@@ -161,8 +179,8 @@ export function HorizontalSnapScrollViewer({
           rounded="lg"
           ref={scrollContainerRef}
           spacing={0}
-          w={imageWidth}
-          h={imageHeight}
+          w={contentWidth}
+          h={contentHeight}
           overflowX="auto"
           shadow={mainShadow}
           css={{
@@ -172,18 +190,31 @@ export function HorizontalSnapScrollViewer({
             },
           }}
         >
-          {images.map((src, index) => (
+          {images &&
+            images.map((src, index) => (
+              <Box
+                key={src}
+                flex="none"
+                scrollSnapAlign="start"
+                w={contentWidth}
+                h={contentHeight}
+                lineHeight="0" // Prevents extra space inside the box
+              >
+                <Image src={src} w="100%" h="100%" objectFit="cover" />
+              </Box>
+            ))}
+          {children && (
             <Box
-              key={src}
-              flex="none"
-              scrollSnapAlign="start"
-              w={imageWidth}
-              h={imageHeight}
-              lineHeight="0" // Prevents extra space inside the box
+              h={contentHeight}
+              w={contentWidth}
+              shadow={mainShadow}
+              css={{
+                scrollSnapAlign: "start",
+              }}
             >
-              <Image src={src} w="100%" h="100%" objectFit="cover" />
+              {children}
             </Box>
-          ))}
+          )}
         </HStack>
         <HStack w="100%" justify="space-between">
           <CustomIconButton

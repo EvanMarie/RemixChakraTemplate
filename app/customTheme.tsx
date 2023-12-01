@@ -4,7 +4,7 @@ export const radius = "md";
 export const shadow = "0px 0px 10px rgba(0,0,0,0.7)";
 export const mainShadow = "2px 2px 8px rgba(0, 0, 0, 0.9)";
 export const subtleShadow = "rgba(0, 0, 0, 0.07) 0px 1px 2px";
-export const largeShadow = "rgb(38, 57, 77) 0px 20px 30px -10px";
+// export const largeShadow = "rgb(38, 57, 77) 0px 20px 30px -10px";
 export const lightShadow = "2px 2px 8px rgba(255, 255, 255, 0.9)";
 export const subtleTextShadow = "2px 2px 2px rgba(0, 0, 0, 0.9)";
 export const largeTextShadow = "2px 3px 5px rgba(0, 0, 0, 0.9)";
@@ -205,7 +205,7 @@ export const InputStyles = {
   _hover: {
     bg: colors.darkTeal,
     borderColor: colors.mediumMagenta,
-    shadow: largeShadow,
+    shadow: mainShadow,
   },
   _focus: {
     bg: colors.darkTeal,
@@ -215,18 +215,18 @@ export const InputStyles = {
 };
 
 export const ButtonStyles = {
-  bg: colors.lightBlue,
+  bg: gradients.radialBlueToCreme,
   h: "35px",
-  color: colors.darkMagenta,
+  color: colors.darkBlue,
   shadow: mainShadow,
   textShadow: lightTextShadow,
   fontWeight: "600",
   rounded: radius,
   _hover: {
-    bg: colors.mediumBlue,
+    bg: gradients.radialTealToMagenta,
     color: colors.lightCreme,
-    shadow: largeShadow,
-    textShadow: subtleTextShadow,
+    shadow: mainShadow,
+    textShadow: largeTextShadow,
     transition: "all 0.3s ease-in-out",
   },
 };
