@@ -27,15 +27,17 @@ export default function CustomIconButton({
   buttonSize = ButtonSize,
   tooltipPlacement = "top",
   tooltipLabel,
+  ...rest // Capture the rest of the props
 }: SingleButtonProps) {
   return (
     <CustomTooltip label={tooltipLabel} placement={tooltipPlacement}>
       <IconButton
         icon={<Icon />}
         fontSize={iconSize}
-        {...ButtonStyles}
+        {...ButtonStyles} // Apply custom button styles
         aria-label="icon button"
         w={buttonSize}
+        {...rest} // Spread the rest of the props here
       />
     </CustomTooltip>
   );

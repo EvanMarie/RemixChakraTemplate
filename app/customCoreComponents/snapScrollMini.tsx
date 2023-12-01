@@ -1,11 +1,4 @@
-import {
-  Box,
-  HStack,
-  Image,
-  Text,
-  VStack,
-  useBreakpointValue,
-} from "@chakra-ui/react";
+import { Box, HStack, Image, Text, VStack } from "@chakra-ui/react";
 import React, { useEffect, useRef, useState } from "react";
 import {
   gradients,
@@ -77,7 +70,7 @@ export function VerticalSnapScrollViewer({
       bg="aiArt.800"
       bgGradient={gradients.radialMagentaMix}
     >
-      <HStack spacing={4} align="center" h="fit-content">
+      <HStack spacing={4} align="stretch" h="fit-content">
         <VStack
           ref={scrollContainerRef}
           w={contentWidth}
@@ -117,25 +110,22 @@ export function VerticalSnapScrollViewer({
             {children}
           </Box>
         </VStack>
-        <VStack h="100%" justify="space-around" spacing="200px">
+        <VStack h="100%" justify="space-between" bg="red">
           <CustomIconButton
             aria-label="scroll up"
             icon={ChevronUpIcon}
-            buttonSize="40px"
-            iconSize="30px"
             onClick={() => scroll("up")}
             isDisabled={atTop}
           />
           <CustomIconButton
             aria-label="scroll down"
             icon={ChevronDownIcon}
-            buttonSize="40px"
-            iconSize="30px"
             onClick={() => scroll("down")}
+            isDisabled={atBottom}
           />
         </VStack>
       </HStack>
-      <Text textShadow={largeTextShadow}>(Image Title)</Text>
+      {/* <Text textShadow={largeTextShadow}>(Image Title)</Text> */}
     </VStack>
   );
 }
@@ -147,22 +137,39 @@ export function HorizontalSnapScrollViewer({
   contentWidth = "350px",
 }: SnapScrollViewerProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [atLeft, setAtLeft] = useState(true);
+  const [atRight, setAtRight] = useState(false);
 
-  // Assume imageWidth is a string like '350px' and extract the numeric value
-  const numericImageWidth = parseInt(contentWidth, 10);
-  const scrollAmount =
-    useBreakpointValue({
-      base: numericImageWidth,
-    }) ?? numericImageWidth;
+  const checkScrollPosition = () => {
+    const container = scrollContainerRef.current;
+    if (container) {
+      setAtLeft(container.scrollLeft === 0);
+      setAtRight(
+        container.scrollLeft + container.clientWidth === container.scrollWidth
+      );
+    }
+  };
 
-  // Function to horizontally scroll the container
   const scroll = (direction: "left" | "right") => {
     const container = scrollContainerRef.current;
     if (container) {
-      const scrollX = direction === "left" ? -scrollAmount : scrollAmount;
+      const scrollX = direction === "left" ? -100 : 100; // Adjust this value as needed
       container.scrollBy({ left: scrollX, behavior: "smooth" });
     }
   };
+
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (container) {
+      container.addEventListener("scroll", checkScrollPosition);
+    }
+
+    return () => {
+      if (container) {
+        container.removeEventListener("scroll", checkScrollPosition);
+      }
+    };
+  }, []);
 
   return (
     <Box
@@ -220,17 +227,15 @@ export function HorizontalSnapScrollViewer({
           <CustomIconButton
             aria-label="scroll left"
             icon={ChevronLeftIcon}
-            buttonSize="40px"
-            iconSize="30px"
             onClick={() => scroll("left")}
+            isDisabled={atLeft}
           />
-          <Text textShadow={largeTextShadow}>(Image Title)</Text>
+          {/* <Text textShadow={largeTextShadow}>(Image Title)</Text> */}
           <CustomIconButton
             aria-label="scroll right"
             icon={ChevronRightIcon}
-            buttonSize="40px"
-            iconSize="30px"
             onClick={() => scroll("right")}
+            isDisabled={atRight}
           />
         </HStack>
       </VStack>

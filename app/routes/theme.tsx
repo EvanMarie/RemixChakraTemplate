@@ -10,14 +10,19 @@ import {
 } from "@chakra-ui/react";
 import CustomIconButton from "~/customCoreComponents/CustomIconButton";
 import EntirePage from "~/customCoreComponents/entirePage";
-import { HorizontalSnapScrollViewer } from "~/customCoreComponents/snapScrollMini";
+import {
+  HorizontalSnapScrollViewer,
+  VerticalSnapScrollViewer,
+} from "~/customCoreComponents/snapScrollMini";
 import {
   ButtonStyles,
   colors,
   gradients,
   largeTextShadow,
+  lightTextShadow,
   mainShadow,
   scrollBarStyles,
+  subtleTextShadow,
 } from "~/customTheme";
 
 const ColorSwatch = () => {
@@ -79,6 +84,15 @@ const ColorSwatch = () => {
   );
 };
 
+const images = [
+  "/cute/cute1.png",
+  "/cute/cute2.png",
+  "/cute/cute3.png",
+  "/cute/cute4.png",
+  "/cute/cute5.png",
+  "/cute/cute6.png",
+];
+
 export default function ViewTheme() {
   const heading = {
     fontSize: "2xl",
@@ -94,9 +108,14 @@ export default function ViewTheme() {
       overflowY="auto"
       sx={scrollBarStyles}
       justify="start"
-      py="20px"
     >
-      <VStack textShadow={largeTextShadow}>
+      <VStack
+        textShadow={lightTextShadow}
+        w="99vw"
+        fontWeight="600"
+        py="20px"
+        overflowX="hidden"
+      >
         <Text {...heading}>Color Theme</Text>
         <ColorSwatch />
         <VStack w="100%">
@@ -117,14 +136,15 @@ export default function ViewTheme() {
               <HorizontalSnapScrollViewer
                 contentHeight="125px"
                 contentWidth="125px"
-                images={[
-                  "/cute/cute1.png",
-                  "/cute/cute2.png",
-                  "/cute/cute3.png",
-                  "/cute/cute4.png",
-                  "/cute/cute5.png",
-                  "/cute/cute6.png",
-                ]}
+                images={images}
+              />
+            </VStack>
+            <VStack>
+              <Text>Vertical Snap Scroll</Text>
+              <VerticalSnapScrollViewer
+                contentHeight="125px"
+                contentWidth="125px"
+                images={images}
               />
             </VStack>
           </HStack>
