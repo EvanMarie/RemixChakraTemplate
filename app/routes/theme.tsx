@@ -1,15 +1,8 @@
 import { ChevronDownIcon } from "@chakra-ui/icons";
-import {
-  Button,
-  Box,
-  Wrap,
-  WrapItem,
-  VStack,
-  Text,
-  HStack,
-} from "@chakra-ui/react";
+import { Button, Box, Wrap, WrapItem, VStack, Text } from "@chakra-ui/react";
 import CustomIconButton from "~/customCoreComponents/CustomIconButton";
 import EntirePage from "~/customCoreComponents/entirePage";
+import LoadingText from "~/customCoreComponents/loadingDots";
 import {
   HorizontalSnapScrollViewer,
   VerticalSnapScrollViewer,
@@ -132,6 +125,11 @@ export default function ViewTheme() {
               <VStack>
                 <Text textShadow={largeTextShadow}>Icon Button Style</Text>
                 <CustomIconButton icon={ChevronDownIcon} />
+              </VStack>
+              <VStack>
+                {" "}
+                <Text textShadow={largeTextShadow}>Loading Text</Text>
+                <LoadingText />
               </VStack>
             </VStack>
           </Wrap>
