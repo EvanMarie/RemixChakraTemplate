@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, keyframes, type BoxProps } from "@chakra-ui/react";
-import { colors, mainShadow } from "~/customTheme";
+import { colors, mainShadow, palette } from "~/customTheme";
 
 // Define keyframes for different gradient transitions
 const slideLeftToRight = keyframes`
@@ -76,7 +76,7 @@ export default function GradientBorder({
   gradientSize = 2,
   p = 4,
   boxBg = colors.darkTeal,
-  color = colors.paleMagenta,
+  color = palette[100],
   rounded = "25px 0px 25px 0",
   gradientDirection = "45deg",
   animationType = "staticGradient",

@@ -23,6 +23,7 @@ import {
   largeTextShadow,
   lightTextShadow,
   mainShadow,
+  palette,
   scrollBarStyles,
 } from "~/customTheme";
 
@@ -41,7 +42,7 @@ const ColorSwatch = () => {
         {Object.entries(colors).map(([colorName, colorValue]) => (
           <WrapItem key={colorName}>
             <VStack>
-              <Text fontSize="xs" color={colors.darkBlue}>
+              <Text fontSize="xs" color={palette[900]}>
                 {colorName}
               </Text>
               <Box
@@ -69,7 +70,7 @@ const ColorSwatch = () => {
           <WrapItem key={gradientName}>
             {" "}
             <VStack>
-              <Text fontSize="xs" color={colors.darkBlue}>
+              <Text fontSize="xs" color={palette[900]}>
                 {gradientName}
               </Text>
               <Box

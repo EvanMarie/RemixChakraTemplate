@@ -52,6 +52,11 @@ export const palette = {
   825: "rgba(21, 40, 64, 0.25)", // darkTeal25
   850: "rgba(21, 40, 64, 0.5)", // darkTeal50
   875: "rgba(21, 40, 64, 0.75)", // darkTeal75
+
+  900: "#0B0C26", // darkBlue
+  925: "rgba(11, 12, 38, 0.25)", // darkBlue25
+  950: "rgba(11, 12, 38, 0.5)", // darkBlue50
+  975: "rgba(11, 12, 38, 0.75)", // darkBlue75
 };
 
 export const colors = {
@@ -102,7 +107,7 @@ export const colors = {
 
 export const gradients = {
   // Linear Gradients
-  linearBlueToTeal: `linear-gradient(to right, ${colors.darkBlue}, ${colors.darkTeal})`,
+  linearBlueToTeal: `linear-gradient(to right, ${palette[900]}, ${colors.darkTeal})`,
   linearMagentaToCreme: `linear-gradient(to bottom, ${colors.darkMagenta}, ${colors.lightCreme})`,
   linearBlueToMagenta: `linear-gradient(to left, ${colors.mediumBlue}, ${colors.mediumMagenta})`,
   linearTealToLightBlue: `linear-gradient(45deg, ${colors.darkTeal}, ${colors.lightBlue})`,
@@ -117,10 +122,10 @@ export const gradients = {
   mixedTealCreme: `linear-gradient(to top left, ${colors.darkTeal}, ${colors.lightCreme}, ${colors.mediumBlue})`,
 
   // Opacity Variants Gradients
-  opacityBlueMagentaBottom: `linear-gradient(to bottom, ${colors.darkBlue50}, ${colors.mediumMagenta50})`,
-  opacityBlueMagentaTop: `linear-gradient(to top, ${colors.darkBlue50}, ${colors.mediumMagenta50})`,
-  opacityBlueMagentaRight: `linear-gradient(to right, ${colors.darkBlue50}, ${colors.mediumMagenta50})`,
-  opacityBlueMagentaLeft: `linear-gradient(to left, ${colors.darkBlue50}, ${colors.mediumMagenta50})`,
+  opacityBlueMagentaBottom: `linear-gradient(to bottom, ${palette[950]}, ${colors.mediumMagenta50})`,
+  opacityBlueMagentaTop: `linear-gradient(to top, ${palette[950]}, ${colors.mediumMagenta50})`,
+  opacityBlueMagentaRight: `linear-gradient(to right, ${palette[150]}, ${colors.mediumMagenta50})`,
+  opacityBlueMagentaLeft: `linear-gradient(to left, ${palette[150]}, ${colors.mediumMagenta50})`,
   opacityCremeToBlueTop: `linear-gradient(to top, ${colors.lightCreme25}, ${colors.lightBlue75})`,
 
   // Diagonal Gradients
@@ -188,19 +193,19 @@ const CustomTheme = extendTheme(
           overflowX: "hidden",
           overflowY: "hidden",
           fontFamily: "'Niramit', sans-serif;",
-          bg: colors.darkBlue,
+          bg: palette[100],
           bgGradient: gradients.diagonalMagentaToBlue,
-          color: colors.lightCreme,
+          color: palette[200],
           fontSize: "1.3rem",
         },
         a: {
-          color: "teal.300",
+          color: palette[600],
           _hover: {
-            color: "purple.200",
+            color: palette[700],
           },
           fontWeight: "600",
           _active: {
-            bg: "purple.200",
+            bg: gradients.radialMagentaMix,
           },
         },
       },
@@ -246,7 +251,7 @@ export const overlayStyles = {
 export const InputStyles = {
   variant: "filled",
   rounded: radius,
-  bg: colors.darkBlue,
+  bg: palette[900],
   w: "100%",
   maxW: "600px",
   color: colors.lightCreme,
@@ -268,7 +273,7 @@ export const InputStyles = {
 export const ButtonStyles = {
   bg: gradients.radialBlueToCreme,
   h: "35px",
-  color: colors.darkBlue,
+  color: palette[900],
   shadow: mainShadow,
   textShadow: lightTextShadow,
   fontWeight: "600",

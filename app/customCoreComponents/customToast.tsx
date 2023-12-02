@@ -14,6 +14,7 @@ import {
   gradients,
   lightTextShadow,
   mainShadow,
+  palette,
   shadow3D,
 } from "~/customTheme";
 import ImageIcon from "./imageIcon";
@@ -38,7 +39,7 @@ export default function CustomToast({
         h="100%"
         bg="aiArt.990"
         bgGradient={gradients.radialBlueToCreme}
-        color={colors.darkBlue}
+        color={palette[900]}
         textShadow={lightTextShadow}
         rounded="lg"
         shadow={shadow3D}

@@ -16,6 +16,7 @@ import {
   colors,
   largeTextShadow,
   overlayStyles,
+  palette,
   shadow3D,
 } from "~/customTheme";
 import ImageIcon from "./imageIcon";
@@ -55,7 +56,7 @@ export default function CustomAlert({
       <AlertDialogOverlay {...overlayStyles}>
         <AlertDialogContent
           bg={colors.darkMagenta}
-          color={colors.paleMagenta}
+          color={palette[100]}
           maxW="390px"
           shadow={shadow3D}
           position="relative"
@@ -70,7 +71,7 @@ export default function CustomAlert({
           <AlertDialogHeader
             fontSize="2xl"
             fontWeight="bold"
-            color={colors.paleMagenta}
+            color={palette[100]}
             textShadow={largeTextShadow}
           >
             <HStack>

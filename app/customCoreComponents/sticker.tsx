@@ -9,7 +9,13 @@ import {
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import FadeIn from "./fadeComponents";
-import { ButtonStyles, colors, gradients, mainShadow } from "~/customTheme";
+import {
+  ButtonStyles,
+  colors,
+  gradients,
+  mainShadow,
+  palette,
+} from "~/customTheme";
 
 interface StickerProps {
   fadeDuration?: string;
@@ -194,7 +200,7 @@ export function AnimationSelector() {
       spacing={8}
       position="relative"
       justify="stretch"
-      bg={colors.darkBlue50}
+      bg={palette[950]}
       bgGradient={gradients.radialTealToMagenta}
       p={2}
       w="350px"

@@ -1,5 +1,5 @@
 import { Box, Flex, keyframes } from "@chakra-ui/react";
-import { colors, largeTextShadow } from "~/customTheme";
+import { colors, largeTextShadow, palette } from "~/customTheme";
 
 interface CometBorderProps {
   children?: React.ReactNode;
@@ -39,7 +39,7 @@ export default function CometBorder({
   bg = colors.darkTeal,
   rounded = "xl",
   fontSize = "lg",
-  color = colors.paleMagenta,
+  color = palette[100],
   p = 6,
   cometSize = 2,
   cometSpeed = "8s",
