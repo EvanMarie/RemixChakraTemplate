@@ -69,7 +69,7 @@ export default function GradientBorder({
   gradientColors = [
     colors.lightBlue,
     palette[400],
-    colors.mediumMagenta,
+    palette[600],
     colors.lightCreme,
   ],
   transitionDuration = "3s",

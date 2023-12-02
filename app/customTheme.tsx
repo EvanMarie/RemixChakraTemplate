@@ -59,78 +59,32 @@ export const palette = {
   975: "rgba(11, 12, 38, 0.75)", // darkBlue75
 };
 
-export const colors = {
-  // Main Colors
-  paleMagenta: "#F2E7F2",
-  lightCreme: "#F2E7C4",
-  lightBlue: "#B8D3D9",
-  lightMagenta: "#D98CB3",
-  mediumBlue: "#456B8C",
-  mediumMagenta: "#B5307A",
-  darkMagenta: "#8A1C7C",
-  darkTeal: "#152840",
-  darkBlue: "#0B0C26",
-
-  // Opacity 0.25
-  darkBlue25: "rgba(11, 12, 38, 0.25)",
-  darkTeal25: "rgba(21, 40, 64, 0.25)",
-  mediumBlue25: "rgba(69, 107, 140, 0.25)",
-  lightBlue25: "rgba(184, 211, 217, 0.25)",
-  lightCreme25: "rgba(242, 231, 196, 0.25)",
-  darkMagenta25: "rgba(138, 28, 124, 0.25)",
-  mediumMagenta25: "rgba(181, 48, 122, 0.25)",
-  lightMagenta25: "rgba(217, 140, 179, 0.25)",
-  paleMagenta25: "rgba(242, 231, 242, 0.25)",
-
-  // Opacity 0.5
-  darkBlue50: "rgba(11, 12, 38, 0.5)",
-  darkTeal50: "rgba(21, 40, 64, 0.5)",
-  mediumBlue50: "rgba(69, 107, 140, 0.5)",
-  lightBlue50: "rgba(184, 211, 217, 0.5)",
-  lightCreme50: "rgba(242, 231, 196, 0.5)",
-  darkMagenta50: "rgba(138, 28, 124, 0.5)",
-  mediumMagenta50: "rgba(181, 48, 122, 0.5)",
-  lightMagenta50: "rgba(217, 140, 179, 0.5)",
-  paleMagenta50: "rgba(242, 231, 242, 0.5)",
-
-  // Opacity 0.75
-  darkBlue75: "rgba(11, 12, 38, 0.75)",
-  darkTeal75: "rgba(21, 40, 64, 0.75)",
-  mediumBlue75: "rgba(69, 107, 140, 0.75)",
-  lightBlue75: "rgba(184, 211, 217, 0.75)",
-  lightCreme75: "rgba(242, 231, 196, 0.75)",
-  darkMagenta75: "rgba(138, 28, 124, 0.75)",
-  mediumMagenta75: "rgba(181, 48, 122, 0.75)",
-  lightMagenta75: "rgba(217, 140, 179, 0.75)",
-  paleMagenta75: "rgba(242, 231, 242, 0.75)",
-};
-
 export const gradients = {
   // Linear Gradients
-  linearBlueToTeal: `linear-gradient(to right, ${palette[900]}, ${colors.darkTeal})`,
-  linearMagentaToCreme: `linear-gradient(to bottom, ${colors.darkMagenta}, ${colors.lightCreme})`,
-  linearBlueToMagenta: `linear-gradient(to left, ${palette[500]}, ${colors.mediumMagenta})`,
-  linearTealToLightBlue: `linear-gradient(45deg, ${colors.darkTeal}, ${colors.lightBlue})`,
+  linearBlueToTeal: `linear-gradient(to right, ${palette[900]}, ${palette[800]})`,
+  linearMagentaToCreme: `linear-gradient(to bottom, ${palette[700]}, ${palette[200]})`,
+  linearBlueToMagenta: `linear-gradient(to left, ${palette[500]}, ${palette[600]})`,
+  linearTealToLightBlue: `linear-gradient(45deg, ${palette[700]}, ${palette[300]})`,
 
   // Radial Gradients
-  radialBlueToCreme: `radial-gradient(circle, ${colors.lightBlue} 0%, ${colors.lightCreme} 100%)`,
-  radialMagentaMix: `radial-gradient(circle, ${palette[400]} 0%, ${colors.darkMagenta} 100%)`,
-  radialTealToMagenta: `radial-gradient(circle, ${colors.darkTeal}, ${colors.mediumMagenta})`,
+  radialBlueToCreme: `radial-gradient(circle, ${palette[300]} 0%, ${palette[200]} 100%)`,
+  radialMagentaMix: `radial-gradient(circle, ${palette[400]} 0%, ${palette[700]} 100%)`,
+  radialTealToMagenta: `radial-gradient(circle, ${palette[800]}, ${palette[600]})`,
 
   // Mixed Colors Gradients
-  mixedBlueMagenta: `linear-gradient(to right, ${palette[500]}, ${palette[400]}, ${colors.darkMagenta})`,
-  mixedTealCreme: `linear-gradient(to top left, ${colors.darkTeal}, ${colors.lightCreme}, ${palette[500]})`,
+  mixedBlueMagenta: `linear-gradient(to right, ${palette[500]}, ${palette[400]}, ${palette[700]})`,
+  mixedTealCreme: `linear-gradient(to top left, ${palette[800]}, ${palette[200]}, ${palette[500]})`,
 
   // Opacity Variants Gradients
-  opacityBlueMagentaBottom: `linear-gradient(to bottom, ${palette[950]}, ${colors.mediumMagenta50})`,
-  opacityBlueMagentaTop: `linear-gradient(to top, ${palette[950]}, ${colors.mediumMagenta50})`,
-  opacityBlueMagentaRight: `linear-gradient(to right, ${palette[150]}, ${colors.mediumMagenta50})`,
-  opacityBlueMagentaLeft: `linear-gradient(to left, ${palette[150]}, ${colors.mediumMagenta50})`,
-  opacityCremeToBlueTop: `linear-gradient(to top, ${colors.lightCreme25}, ${colors.lightBlue75})`,
+  opacityBlueMagentaBottom: `linear-gradient(to bottom, ${palette[950]}, ${palette[650]})`,
+  opacityBlueMagentaTop: `linear-gradient(to top, ${palette[950]}, ${palette[650]})`,
+  opacityBlueMagentaRight: `linear-gradient(to right, ${palette[150]}, ${palette[650]})`,
+  opacityBlueMagentaLeft: `linear-gradient(to left, ${palette[150]}, ${palette[600]})`,
+  opacityCremeToBlueTop: `linear-gradient(to top, ${palette[225]}, ${palette[375]})`,
 
   // Diagonal Gradients
-  diagonalMagentaToBlue: `linear-gradient(135deg, ${colors.darkMagenta}, ${palette[500]})`,
-  diagonalTealToCreme: `linear-gradient(135deg, ${colors.darkTeal}, ${colors.lightCreme})`,
+  diagonalMagentaToBlue: `linear-gradient(135deg, ${palette[700]}, ${palette[500]})`,
+  diagonalTealToCreme: `linear-gradient(135deg, ${palette[700]}, ${palette[200]})`,
 };
 
 const customTransition = {
@@ -260,7 +214,7 @@ export const InputStyles = {
   focusBorderColor: colors.darkMagenta,
   _hover: {
     bg: colors.darkTeal,
-    borderColor: colors.mediumMagenta,
+    borderColor: palette[600],
     shadow: mainShadow,
   },
   _focus: {

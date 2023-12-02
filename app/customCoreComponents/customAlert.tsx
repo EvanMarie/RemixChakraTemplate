@@ -55,7 +55,7 @@ export default function CustomAlert({
     >
       <AlertDialogOverlay {...overlayStyles}>
         <AlertDialogContent
-          bg={colors.darkMagenta}
+          bg={palette[700]}
           color={palette[100]}
           maxW="390px"
           shadow={shadow3D}
