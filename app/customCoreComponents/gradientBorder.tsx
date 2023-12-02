@@ -68,7 +68,7 @@ export default function GradientBorder({
   children,
   gradientColors = [
     colors.lightBlue,
-    colors.lightMagenta,
+    palette[400],
     colors.mediumMagenta,
     colors.lightCreme,
   ],

@@ -114,11 +114,11 @@ export const gradients = {
 
   // Radial Gradients
   radialBlueToCreme: `radial-gradient(circle, ${colors.lightBlue} 0%, ${colors.lightCreme} 100%)`,
-  radialMagentaMix: `radial-gradient(circle, ${colors.lightMagenta} 0%, ${colors.darkMagenta} 100%)`,
+  radialMagentaMix: `radial-gradient(circle, ${palette[400]} 0%, ${colors.darkMagenta} 100%)`,
   radialTealToMagenta: `radial-gradient(circle, ${colors.darkTeal}, ${colors.mediumMagenta})`,
 
   // Mixed Colors Gradients
-  mixedBlueMagenta: `linear-gradient(to right, ${colors.mediumBlue}, ${colors.lightMagenta}, ${colors.darkMagenta})`,
+  mixedBlueMagenta: `linear-gradient(to right, ${colors.mediumBlue}, ${palette[400]}, ${colors.darkMagenta})`,
   mixedTealCreme: `linear-gradient(to top left, ${colors.darkTeal}, ${colors.lightCreme}, ${colors.mediumBlue})`,
 
   // Opacity Variants Gradients
