@@ -80,7 +80,7 @@ export default function CustomAlert({
           </AlertDialogHeader>
 
           <AlertDialogBody display="flex" justifyContent="end">
-            <VStack w="65%" align="start" spacing={1}>
+            <VStack w="65%" align="start" textAlign="right" spacing={1}>
               <Text size="xl">{body}</Text>
             </VStack>
           </AlertDialogBody>

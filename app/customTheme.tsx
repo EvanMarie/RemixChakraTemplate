@@ -12,17 +12,59 @@ export const lightTextShadow = "2px 2px 2px rgba(148, 208, 255, 0.9)";
 export const shadow3D =
   "rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;";
 
+export const palette = {
+  100: "#F2E7F2", // paleMagenta
+  125: "rgba(242, 231, 242, 0.25)", // paleMagenta25
+  150: "rgba(242, 231, 242, 0.5)", // paleMagenta50
+  175: "rgba(242, 231, 242, 0.75)", // paleMagenta75
+
+  200: "#F2E7C4", // lightCreme
+  225: "rgba(242, 231, 196, 0.25)", // lightCreme25
+  250: "rgba(242, 231, 196, 0.5)", // lightCreme50
+  275: "rgba(242, 231, 196, 0.75)", // lightCreme75
+
+  300: "#B8D3D9", // lightBlue
+  325: "rgba(184, 211, 217, 0.25)", // lightBlue25
+  350: "rgba(184, 211, 217, 0.5)", // lightBlue50
+  375: "rgba(184, 211, 217, 0.75)", // lightBlue75
+
+  400: "#D98CB3", // lightMagenta
+  425: "rgba(217, 140, 179, 0.25)", // lightMagenta25
+  450: "rgba(217, 140, 179, 0.5)", // lightMagenta50
+  475: "rgba(217, 140, 179, 0.75)", // lightMagenta75
+
+  500: "#456B8C", // mediumBlue
+  525: "rgba(69, 107, 140, 0.25)", // mediumBlue25
+  550: "rgba(69, 107, 140, 0.5)", // mediumBlue50
+  575: "rgba(69, 107, 140, 0.75)", // mediumBlue75
+
+  600: "#B5307A", // mediumMagenta
+  625: "rgba(181, 48, 122, 0.25)", // mediumMagenta25
+  650: "rgba(181, 48, 122, 0.5)", // mediumMagenta50
+  675: "rgba(181, 48, 122, 0.75)", // mediumMagenta75
+
+  700: "#8A1C7C", // darkMagenta
+  725: "rgba(138, 28, 124, 0.25)", // darkMagenta25
+  750: "rgba(138, 28, 124, 0.5)", // darkMagenta50
+  775: "rgba(138, 28, 124, 0.75)", // darkMagenta75
+
+  800: "#152840", // darkTeal
+  825: "rgba(21, 40, 64, 0.25)", // darkTeal25
+  850: "rgba(21, 40, 64, 0.5)", // darkTeal50
+  875: "rgba(21, 40, 64, 0.75)", // darkTeal75
+};
+
 export const colors = {
   // Main Colors
-  darkBlue: "#0B0C26",
-  darkTeal: "#152840",
-  mediumBlue: "#456B8C",
-  lightBlue: "#B8D3D9",
-  lightCreme: "#F2E7C4",
-  darkMagenta: "#8A1C7C",
-  mediumMagenta: "#B5307A",
-  lightMagenta: "#D98CB3",
   paleMagenta: "#F2E7F2",
+  lightCreme: "#F2E7C4",
+  lightBlue: "#B8D3D9",
+  lightMagenta: "#D98CB3",
+  mediumBlue: "#456B8C",
+  mediumMagenta: "#B5307A",
+  darkMagenta: "#8A1C7C",
+  darkTeal: "#152840",
+  darkBlue: "#0B0C26",
 
   // Opacity 0.25
   darkBlue25: "rgba(11, 12, 38, 0.25)",
