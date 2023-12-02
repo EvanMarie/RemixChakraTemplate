@@ -198,7 +198,7 @@ export const scrollBarStyles = {
 };
 
 export const overlayStyles = {
-  bgGradient: gradients.mediumLightDiagonal,
+  bgGradient: gradients.opacityHorizontalLight,
   backdropFilter: "blur(4px)",
 };
 
