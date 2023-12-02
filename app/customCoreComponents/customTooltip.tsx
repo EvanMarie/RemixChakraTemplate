@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Box, Flex } from "@chakra-ui/react";
-import { colors } from "~/customTheme";
+import { palette } from "~/customTheme";
 
 interface CustomTooltipProps {
   label?: string;
@@ -29,8 +29,8 @@ interface CustomTooltipProps {
 
 export default function CustomTooltip({
   label,
-  bg = colors.lightBlue,
-  color = colors.darkMagenta,
+  bg = palette[300],
+  color = palette[700],
   w = "150px",
   h = "fit-content",
   fontSize = "1rem",

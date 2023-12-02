@@ -6,7 +6,7 @@ import {
   shadow3D,
   scrollBarStyles,
   gradients,
-  colors,
+  palette,
 } from "~/customTheme";
 import { truncateText } from "~/utils";
 
@@ -118,7 +118,7 @@ function CustomDropdown({
           top="100%"
           left="0"
           spacing={1}
-          bg={colors.darkTeal}
+          bg={palette[800]}
           bgGradient={gradients.opacityCremeToBlueTop}
           rounded="md"
           maxH="300px"

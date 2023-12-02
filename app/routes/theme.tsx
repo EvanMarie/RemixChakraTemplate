@@ -18,7 +18,6 @@ import { AnimationSelector } from "~/customCoreComponents/sticker";
 
 import {
   ButtonStyles,
-  colors,
   gradients,
   largeTextShadow,
   lightTextShadow,
@@ -39,7 +38,7 @@ const ColorSwatch = () => {
         p={3}
         textShadow={lightTextShadow}
       >
-        {Object.entries(colors).map(([colorName, colorValue]) => (
+        {Object.entries(palette).map(([colorName, colorValue]) => (
           <WrapItem key={colorName}>
             <VStack>
               <Text fontSize="xs" color={palette[900]}>
@@ -100,7 +99,7 @@ const images = [
 export default function ViewTheme() {
   const heading = {
     fontSize: "2xl",
-    color: colors.lightCreme,
+    color: palette[200],
     textShadow: largeTextShadow,
     w: "100%",
     textAlign: "left" as const,

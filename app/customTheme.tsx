@@ -208,18 +208,18 @@ export const InputStyles = {
   bg: palette[900],
   w: "100%",
   maxW: "600px",
-  color: colors.lightCreme,
+  color: palette[200],
   shadow: shadow,
   borderColor: palette[500],
-  focusBorderColor: colors.darkMagenta,
+  focusBorderColor: palette[700],
   _hover: {
-    bg: colors.darkTeal,
+    bg: palette[800],
     borderColor: palette[600],
     shadow: mainShadow,
   },
   _focus: {
-    bg: colors.darkTeal,
-    borderColor: colors.darkMagenta,
+    bg: palette[800],
+    borderColor: palette[700],
   },
   transition: "all 0.3s ease-in-out",
 };
@@ -234,7 +234,7 @@ export const ButtonStyles = {
   rounded: radius,
   _hover: {
     bg: gradients.linearTealToLightBlue,
-    color: colors.lightCreme,
+    color: palette[200],
     shadow: mainShadow,
     textShadow: largeTextShadow,
     transition: "all 0.3s ease-in-out",
