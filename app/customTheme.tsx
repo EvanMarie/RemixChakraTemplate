@@ -109,7 +109,7 @@ export const gradients = {
   // Linear Gradients
   linearBlueToTeal: `linear-gradient(to right, ${palette[900]}, ${colors.darkTeal})`,
   linearMagentaToCreme: `linear-gradient(to bottom, ${colors.darkMagenta}, ${colors.lightCreme})`,
-  linearBlueToMagenta: `linear-gradient(to left, ${colors.mediumBlue}, ${colors.mediumMagenta})`,
+  linearBlueToMagenta: `linear-gradient(to left, ${palette[500]}, ${colors.mediumMagenta})`,
   linearTealToLightBlue: `linear-gradient(45deg, ${colors.darkTeal}, ${colors.lightBlue})`,
 
   // Radial Gradients
@@ -118,8 +118,8 @@ export const gradients = {
   radialTealToMagenta: `radial-gradient(circle, ${colors.darkTeal}, ${colors.mediumMagenta})`,
 
   // Mixed Colors Gradients
-  mixedBlueMagenta: `linear-gradient(to right, ${colors.mediumBlue}, ${palette[400]}, ${colors.darkMagenta})`,
-  mixedTealCreme: `linear-gradient(to top left, ${colors.darkTeal}, ${colors.lightCreme}, ${colors.mediumBlue})`,
+  mixedBlueMagenta: `linear-gradient(to right, ${palette[500]}, ${palette[400]}, ${colors.darkMagenta})`,
+  mixedTealCreme: `linear-gradient(to top left, ${colors.darkTeal}, ${colors.lightCreme}, ${palette[500]})`,
 
   // Opacity Variants Gradients
   opacityBlueMagentaBottom: `linear-gradient(to bottom, ${palette[950]}, ${colors.mediumMagenta50})`,
@@ -129,7 +129,7 @@ export const gradients = {
   opacityCremeToBlueTop: `linear-gradient(to top, ${colors.lightCreme25}, ${colors.lightBlue75})`,
 
   // Diagonal Gradients
-  diagonalMagentaToBlue: `linear-gradient(135deg, ${colors.darkMagenta}, ${colors.mediumBlue})`,
+  diagonalMagentaToBlue: `linear-gradient(135deg, ${colors.darkMagenta}, ${palette[500]})`,
   diagonalTealToCreme: `linear-gradient(135deg, ${colors.darkTeal}, ${colors.lightCreme})`,
 };
 
@@ -256,7 +256,7 @@ export const InputStyles = {
   maxW: "600px",
   color: colors.lightCreme,
   shadow: shadow,
-  borderColor: colors.mediumBlue,
+  borderColor: palette[500],
   focusBorderColor: colors.darkMagenta,
   _hover: {
     bg: colors.darkTeal,
