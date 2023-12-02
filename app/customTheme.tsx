@@ -154,8 +154,10 @@ const CustomTheme = extendTheme(
         },
         a: {
           color: palette[600],
+          textShadow: largeTextShadow,
           _hover: {
             color: palette[700],
+            textShadow: lightTextShadow,
           },
           fontWeight: "600",
           _active: {
