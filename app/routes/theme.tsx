@@ -1,15 +1,21 @@
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import { Button, Box, Wrap, WrapItem, VStack, Text } from "@chakra-ui/react";
+import { useRef, useState } from "react";
 import CustomIconButton from "~/customCoreComponents/CustomIconButton";
 import CometBorder from "~/customCoreComponents/cometBorder";
+import CustomAlert from "~/customCoreComponents/customAlert";
+import { ToastButton } from "~/customCoreComponents/customToast";
 import EntirePage from "~/customCoreComponents/entirePage";
-import { FadeInImage } from "~/customCoreComponents/fadeIn";
+import { FadeInImage } from "~/customCoreComponents/fadeComponents";
 import GradientBorder from "~/customCoreComponents/gradientBorder";
+import ImageIcon from "~/customCoreComponents/imageIcon";
 import LoadingText from "~/customCoreComponents/loadingDots";
 import {
   HorizontalSnapScrollViewer,
   VerticalSnapScrollViewer,
 } from "~/customCoreComponents/snapScrollMini";
+import { AnimationSelector } from "~/customCoreComponents/sticker";
+
 import {
   ButtonStyles,
   colors,
@@ -99,6 +105,18 @@ export default function ViewTheme() {
     textAlign: "left" as const,
     pl: 5,
   };
+
+  const [isAlertOpen, setIsAlertOpen] = useState(false);
+  const cancelRef = useRef<HTMLButtonElement | null>(null);
+
+  const openAlert = () => setIsAlertOpen(true);
+  const closeAlert = () => setIsAlertOpen(false);
+  const handleConfirm = () => {
+    // Logic for what happens when the user confirms
+    console.log("Confirmed");
+    closeAlert();
+  };
+
   return (
     <EntirePage
       gap="20px"
@@ -106,12 +124,12 @@ export default function ViewTheme() {
       sx={scrollBarStyles}
       justify="start"
     >
-      <VStack w="99vw" fontWeight="600" py="20px" overflowX="hidden">
+      <VStack w="99vw" h="100%" fontWeight="600" overflowX="hidden">
         <Text {...heading}>Color Theme</Text>
         <ColorSwatch />
-        <VStack w="100%">
+        <VStack w="100%" h="100%">
           <Text {...heading}>Components</Text>
-          <Wrap spacing="30px" justify="center" align="stretch">
+          <Wrap spacing="30px" justify="center" align="stretch" pb="20px">
             <VStack>
               <Text textShadow={largeTextShadow}>Horizontal Snap Scroll</Text>
               <HorizontalSnapScrollViewer images={images} />
@@ -134,23 +152,58 @@ export default function ViewTheme() {
                 <LoadingText />
               </VStack>
             </VStack>
-            <VStack>
-              <Text textShadow={largeTextShadow}>Comet Border</Text>
-              <CometBorder>
-                <Box w="300px" h="1 00px">
-                  Contents of Comet Border
-                </Box>
-              </CometBorder>
-            </VStack>
-            <VStack>
-              <Text textShadow={largeTextShadow}>Gradient Border</Text>
-              <GradientBorder>
-                <Box w="300px" h="1 00px">
-                  Contents of Gradient Border
-                </Box>
-              </GradientBorder>
+            <VStack justify="space-evenly">
+              <VStack>
+                <Text textShadow={largeTextShadow}>Comet Border</Text>
+                <CometBorder>
+                  <Box w="300px" h="1 00px">
+                    Contents of Comet Border
+                  </Box>
+                </CometBorder>
+              </VStack>
+              <VStack>
+                <Text textShadow={largeTextShadow}>Gradient Border</Text>
+                <GradientBorder>
+                  <Box w="300px" h="1 00px">
+                    Contents of Gradient Border
+                  </Box>
+                </GradientBorder>
+              </VStack>
             </VStack>
             <FadeInImage src="/cute/cute1.png" />
+            <VStack h="100%" justify="stretch">
+              <Text textShadow={largeTextShadow}>Sticker</Text>
+              <AnimationSelector />
+            </VStack>
+            <VStack spacing={8}>
+              <VStack spacing={5}>
+                <Text textShadow={largeTextShadow}>Image Icon</Text>
+                <ImageIcon keyword="stars" size="50px" />
+              </VStack>
+              <VStack>
+                <Text textShadow={largeTextShadow}>Custom Toast</Text>
+                <ToastButton />
+              </VStack>
+              <VStack>
+                <Text textShadow={largeTextShadow}>Custom Alert</Text>
+                <Button {...ButtonStyles} onClick={openAlert}>
+                  Open Alert
+                </Button>
+
+                <CustomAlert
+                  isAlertOpen={isAlertOpen}
+                  onClose={closeAlert}
+                  onConfirmClick={handleConfirm}
+                  cancelRef={cancelRef}
+                  title="Your Alert Title"
+                  body="This is the alert message."
+                  confirmButtonText="Confirm"
+                  cancelButtonText="Cancel"
+                  imageIcon="stars" // Replace with your icon keyword if needed
+                  image="/cute/sticker.png" // Replace with your image path
+                />
+              </VStack>
+            </VStack>
           </Wrap>
         </VStack>
       </VStack>

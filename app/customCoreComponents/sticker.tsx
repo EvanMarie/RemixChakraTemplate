@@ -1,7 +1,15 @@
 import { keyframes } from "@emotion/react";
-import FadeIn from "./fadeIn";
-import { Box, Image, useBreakpointValue } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Image,
+  Select,
+  VStack,
+  useBreakpointValue,
+} from "@chakra-ui/react";
 import { useEffect, useState } from "react";
+import FadeIn from "./fadeComponents";
+import { ButtonStyles, colors, gradients, mainShadow } from "~/customTheme";
 
 interface StickerProps {
   fadeDuration?: string;
@@ -157,5 +165,66 @@ export default function Sticker({
         <Image src={src} width={w} height={h} maxW={maxW} />
       </Box>
     </FadeIn>
+  );
+}
+
+// ------------------------------------------------------------------------------------------------ //
+// To show all the various animations for Sticker
+
+type AnimationType =
+  | "blink"
+  | "heartbeat"
+  | "spin"
+  | "swing"
+  | "float"
+  | "shake"
+  | "flipHorizontal"
+  | "flipVertical"
+  | "none";
+
+export function AnimationSelector() {
+  const [animation, setAnimation] = useState<AnimationType>("none");
+
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setAnimation(event.target.value as AnimationType);
+  };
+
+  return (
+    <VStack
+      spacing={8}
+      position="relative"
+      justify="stretch"
+      bg={colors.darkBlue50}
+      bgGradient={gradients.radialTealToMagenta}
+      p={2}
+      w="350px"
+      rounded="lg"
+      shadow={mainShadow}
+      h="100%"
+    >
+      <Select
+        onChange={handleChange}
+        placeholder="Select animation"
+        {...ButtonStyles}
+      >
+        <option value="blink">Blink</option>
+        <option value="heartbeat">Heartbeat</option>
+        <option value="spin">Spin</option>
+        <option value="swing">Swing</option>
+        <option value="float">Float</option>
+        <option value="shake">Shake</option>
+        <option value="flipHorizontal">Flip Horizontal</option>
+        <option value="flipVertical">Flip Vertical</option>
+      </Select>
+      <Flex w="100%" h="225px" justify="center" align="center">
+        <Sticker
+          src="/cute/sticker.png" // Replace with your image source
+          animate={animation}
+          position="relative"
+          w="150px"
+          h="150px"
+        />
+      </Flex>
+    </VStack>
   );
 }

@@ -1,8 +1,18 @@
-import { Box, Flex, HStack, Image, Text, VStack } from "@chakra-ui/react";
 import {
+  Box,
+  Button,
+  Flex,
+  HStack,
+  Image,
+  Text,
+  VStack,
+  useToast,
+} from "@chakra-ui/react";
+import {
+  ButtonStyles,
   colors,
   gradients,
-  largeTextShadow,
+  lightTextShadow,
   mainShadow,
   shadow3D,
 } from "~/customTheme";
@@ -22,32 +32,29 @@ export default function CustomToast({
   image,
 }: CustomToastProps) {
   return (
-    <Box position="absolute" w="375px" h="275px" shadow={mainShadow}>
+    <Box w="375px" h="275px" shadow={mainShadow}>
       <Flex
         w="100%"
         h="100%"
-        position="relative"
         bg="aiArt.990"
-        bgGradient={gradients.radialTealToMagenta}
+        bgGradient={gradients.radialBlueToCreme}
+        color={colors.darkBlue}
+        textShadow={lightTextShadow}
         rounded="lg"
         shadow={shadow3D}
         p={2}
+        position="relative"
       >
         <Image
           src={image}
           w="140px"
           position="absolute"
-          bottom="0"
+          bottom="0px"
           left="5px"
         />
-        <VStack
-          fontSize="xl"
-          fontWeight="600"
-          color={colors.paleMagenta}
-          textShadow={largeTextShadow}
-        >
+        <VStack fontSize="xl" fontWeight="600">
           <HStack spacing={4} w="100%">
-            {ImageIcon && <ImageIcon keyword={imageIcon} size="50px" />}
+            {imageIcon && <ImageIcon keyword={imageIcon} size="50px" />}
             <Text>{title}</Text>
           </HStack>
 
@@ -59,5 +66,33 @@ export default function CustomToast({
         </VStack>
       </Flex>
     </Box>
+  );
+}
+
+// --------------------------------------------------------------------------------------------
+// Component: to show example of CustomToast
+
+export function ToastButton() {
+  const toast = useToast();
+
+  const showCustomToast = () => {
+    toast({
+      duration: 5000,
+      position: "bottom-left",
+      render: () => (
+        <CustomToast
+          title="Toast Title"
+          body="This is the body of the toast."
+          imageIcon="stars"
+          image="/cute/sticker.png"
+        />
+      ),
+    });
+  };
+
+  return (
+    <Button {...ButtonStyles} onClick={showCustomToast}>
+      Show Custom Toast
+    </Button>
   );
 }

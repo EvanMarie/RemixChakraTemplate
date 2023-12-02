@@ -39,7 +39,6 @@ export default function ImageIcon({
   imageIconPath,
 }: ImageIconProps) {
   return (
-    // <CustomTooltip label={label} placement="bottom">
     <Box
       position={position}
       top={top}
@@ -52,7 +51,7 @@ export default function ImageIcon({
       rounded={rounded}
     >
       <Image
-        src={imageIconPath ? imageIconPath : `/images/icons/${keyword}Icon.png`}
+        src={imageIconPath ? imageIconPath : `/icons/${keyword}Icon.png`}
         alt={label}
         boxSize={size}
         shadow={shadow}
@@ -63,6 +62,5 @@ export default function ImageIcon({
         }}
       />
     </Box>
-    // </CustomTooltip>
   );
 }

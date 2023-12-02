@@ -1,6 +1,6 @@
 import { Box, Button, Flex, Image, VStack } from "@chakra-ui/react";
 import React, { useState, useEffect, type CSSProperties } from "react";
-import { ButtonStyles, colors, gradients, mainShadow } from "~/customTheme";
+import { ButtonStyles, gradients, mainShadow } from "~/customTheme";
 
 interface FadeInProps {
   children: React.ReactNode;
@@ -28,6 +28,7 @@ export default function FadeIn({
   return <div style={fadeInStyle}>{children}</div>;
 }
 
+// ------------------------------------------------------------------------------------------------ //
 // To show how FadeIn works in the theme page:
 
 interface FadeInImageProps {
@@ -45,7 +46,7 @@ export function FadeInImage({ src, imageSize = "300px" }: FadeInImageProps) {
   return (
     <VStack spacing={4}>
       <Button onClick={handleClick} {...ButtonStyles}>
-        {showImage ? "Close Image" : "Fade In Image"}
+        {showImage ? "Fade Out Image" : "Fade In Image"}
       </Button>
 
       <Box w={imageSize} h={imageSize} shadow={mainShadow} rounded="lg">
@@ -66,7 +67,7 @@ export function FadeInImage({ src, imageSize = "300px" }: FadeInImageProps) {
             w="100%"
             align="center"
             justify="center"
-            bgGradient={gradients.diagonalMagentaToBlue}
+            bgGradient={gradients.opacityCremeToBlueTop}
             rounded="lg"
           >
             Image will appear here.

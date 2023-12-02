@@ -232,7 +232,7 @@ export const ButtonStyles = {
   fontWeight: "600",
   rounded: radius,
   _hover: {
-    bg: gradients.radialTealToMagenta,
+    bg: gradients.linearTealToLightBlue,
     color: colors.lightCreme,
     shadow: mainShadow,
     textShadow: largeTextShadow,

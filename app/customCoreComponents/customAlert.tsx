@@ -12,9 +12,9 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import {
+  ButtonStyles,
   colors,
   largeTextShadow,
-  mainShadow,
   overlayStyles,
   shadow3D,
 } from "~/customTheme";
@@ -50,6 +50,7 @@ export default function CustomAlert({
       isOpen={isAlertOpen}
       leastDestructiveRef={cancelRef}
       onClose={onClose}
+      isCentered
     >
       <AlertDialogOverlay {...overlayStyles}>
         <AlertDialogContent
@@ -88,20 +89,7 @@ export default function CustomAlert({
             <Button ref={cancelRef} onClick={onClose}>
               {cancelButtonText}
             </Button>
-            <Button
-              colorScheme="red"
-              onClick={onConfirmClick}
-              ml={3}
-              bg={colors.paleMagenta}
-              shadow={mainShadow}
-              color="aiArt.900"
-              border="1.5px solid"
-              _hover={{
-                bg: "aiArt.900",
-                color: colors.paleMagenta,
-                transition: "all 0.3s ease-in-out",
-              }}
-            >
+            <Button {...ButtonStyles} onClick={onConfirmClick} ml={3}>
               {confirmButtonText}
             </Button>
           </AlertDialogFooter>
