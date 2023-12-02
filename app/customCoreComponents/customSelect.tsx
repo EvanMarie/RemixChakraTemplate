@@ -119,7 +119,7 @@ function CustomDropdown({
           left="0"
           spacing={1}
           bg={palette[800]}
-          bgGradient={gradients.opacityCremeToBlueTop}
+          bgGradient={gradients.opacityVerticalLight}
           rounded="md"
           maxH="300px"
           overflowY="auto"

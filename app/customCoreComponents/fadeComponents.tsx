@@ -1,6 +1,6 @@
 import { Box, Button, Flex, Image, VStack } from "@chakra-ui/react";
 import React, { useState, useEffect, type CSSProperties } from "react";
-import { ButtonStyles, gradients, mainShadow } from "~/customTheme";
+import { ButtonStyles, gradients, mainShadow, palette } from "~/customTheme";
 
 interface FadeInProps {
   children: React.ReactNode;
@@ -67,8 +67,9 @@ export function FadeInImage({ src, imageSize = "300px" }: FadeInImageProps) {
             w="100%"
             align="center"
             justify="center"
-            bgGradient={gradients.opacityCremeToBlueTop}
+            bgGradient={gradients.diagonalLight}
             rounded="lg"
+            color={palette[900]}
           >
             Image will appear here.
           </Flex>

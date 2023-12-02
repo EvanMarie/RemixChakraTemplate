@@ -61,30 +61,30 @@ export const palette = {
 
 export const gradients = {
   // Linear Gradients
-  linearBlueToTeal: `linear-gradient(to right, ${palette[900]}, ${palette[800]})`,
-  linearMagentaToCreme: `linear-gradient(to bottom, ${palette[700]}, ${palette[200]})`,
-  linearBlueToMagenta: `linear-gradient(to left, ${palette[500]}, ${palette[600]})`,
-  linearTealToLightBlue: `linear-gradient(45deg, ${palette[700]}, ${palette[300]})`,
+
+  verticalMedium: `linear-gradient(to bottom, ${palette[600]}, ${palette[200]})`,
+  verticalLight: `linear-gradient(to left, ${palette[300]}, ${palette[400]})`,
+  diagonalMedium: `linear-gradient(45deg, ${palette[600]}, ${palette[300]})`,
 
   // Radial Gradients
-  radialBlueToCreme: `radial-gradient(circle, ${palette[300]} 0%, ${palette[200]} 100%)`,
-  radialMagentaMix: `radial-gradient(circle, ${palette[400]} 0%, ${palette[700]} 100%)`,
-  radialTealToMagenta: `radial-gradient(circle, ${palette[800]}, ${palette[600]})`,
+  radialLight: `radial-gradient(circle, ${palette[300]} 0%, ${palette[200]} 100%)`,
+  radialMedium: `radial-gradient(circle, ${palette[400]} 0%, ${palette[500]} 100%)`,
+  radialMedium2: `radial-gradient(circle, ${palette[700]}, ${palette[400]})`,
 
   // Mixed Colors Gradients
-  mixedBlueMagenta: `linear-gradient(to right, ${palette[500]}, ${palette[400]}, ${palette[700]})`,
-  mixedTealCreme: `linear-gradient(to top left, ${palette[800]}, ${palette[200]}, ${palette[500]})`,
+  verticalMedium2: `linear-gradient(to right, ${palette[400]}, ${palette[400]}, ${palette[600]})`,
+  diagonalLight: `linear-gradient(to top left, ${palette[400]}, ${palette[200]}, ${palette[300]})`,
 
   // Opacity Variants Gradients
-  opacityBlueMagentaBottom: `linear-gradient(to bottom, ${palette[950]}, ${palette[650]})`,
-  opacityBlueMagentaTop: `linear-gradient(to top, ${palette[950]}, ${palette[650]})`,
-  opacityBlueMagentaRight: `linear-gradient(to right, ${palette[150]}, ${palette[650]})`,
-  opacityBlueMagentaLeft: `linear-gradient(to left, ${palette[150]}, ${palette[600]})`,
-  opacityCremeToBlueTop: `linear-gradient(to top, ${palette[225]}, ${palette[375]})`,
+  opacityVerticalMedium: `linear-gradient(to top, ${palette[950]}, ${palette[650]})`,
+  opacityHorizontalLight: `linear-gradient(to right, ${palette[150]}, ${palette[650]})`,
+  opacityHorizontalMedium: `linear-gradient(to left, ${palette[150]}, ${palette[600]})`,
+  opacityVerticalLight: `linear-gradient(to top, ${palette[225]}, ${palette[375]})`,
 
   // Diagonal Gradients
-  diagonalMagentaToBlue: `linear-gradient(135deg, ${palette[700]}, ${palette[500]})`,
-  diagonalTealToCreme: `linear-gradient(135deg, ${palette[700]}, ${palette[200]})`,
+  mediumDarkDiagonal: `linear-gradient(135deg, ${palette[700]}, ${palette[500]})`,
+  mediumLightDiagonal: `linear-gradient(135deg, ${palette[600]}, ${palette[200]})`,
+  darkDiagonal: `linear-gradient(135deg, ${palette[900]}, ${palette[700]})`,
 };
 
 const customTransition = {
@@ -148,7 +148,7 @@ const CustomTheme = extendTheme(
           overflowY: "hidden",
           fontFamily: "'Niramit', sans-serif;",
           bg: palette[100],
-          bgGradient: gradients.diagonalMagentaToBlue,
+          bgGradient: gradients.mediumDarkDiagonal,
           color: palette[200],
           fontSize: "1.3rem",
         },
@@ -159,7 +159,7 @@ const CustomTheme = extendTheme(
           },
           fontWeight: "600",
           _active: {
-            bg: gradients.radialMagentaMix,
+            bg: gradients.radialMedium2,
           },
         },
       },
@@ -198,7 +198,7 @@ export const scrollBarStyles = {
 };
 
 export const overlayStyles = {
-  bgGradient: gradients.opacityBlueMagentaTop,
+  bgGradient: gradients.mediumLightDiagonal,
   backdropFilter: "blur(4px)",
 };
 
@@ -225,7 +225,7 @@ export const InputStyles = {
 };
 
 export const ButtonStyles = {
-  bg: gradients.radialBlueToCreme,
+  bg: gradients.radialLight,
   h: "35px",
   color: palette[900],
   shadow: mainShadow,
@@ -233,10 +233,10 @@ export const ButtonStyles = {
   fontWeight: "600",
   rounded: radius,
   _hover: {
-    bg: gradients.linearTealToLightBlue,
-    color: palette[200],
+    bg: gradients.verticalLight,
+    color: palette[700],
     shadow: mainShadow,
-    textShadow: largeTextShadow,
+    textShadow: subtleShadow,
     transition: "all 0.3s ease-in-out",
   },
 };

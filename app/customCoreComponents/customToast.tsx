@@ -10,7 +10,6 @@ import {
 } from "@chakra-ui/react";
 import {
   ButtonStyles,
-  colors,
   gradients,
   lightTextShadow,
   mainShadow,
@@ -38,7 +37,7 @@ export default function CustomToast({
         w="100%"
         h="100%"
         bg="aiArt.990"
-        bgGradient={gradients.radialBlueToCreme}
+        bgGradient={gradients.radialLight}
         color={palette[900]}
         textShadow={lightTextShadow}
         rounded="lg"

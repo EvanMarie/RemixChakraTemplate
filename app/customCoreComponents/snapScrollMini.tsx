@@ -63,7 +63,7 @@ export function VerticalSnapScrollViewer({
       p={5}
       rounded="lg"
       bg="aiArt.800"
-      bgGradient={gradients.radialTealToMagenta}
+      bgGradient={gradients.darkDiagonal}
       shadow={mainShadow}
       w="fit-content"
     >
@@ -180,7 +180,7 @@ export function HorizontalSnapScrollViewer({
       p={5}
       rounded="lg"
       bg="aiArt.800"
-      bgGradient={gradients.radialTealToMagenta}
+      bgGradient={gradients.darkDiagonal}
       shadow={mainShadow}
     >
       <VStack spacing={5}>
